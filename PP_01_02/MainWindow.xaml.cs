@@ -21,6 +21,7 @@ namespace PP_01_02
         public static MainWindow init;
 
         public Pages.list.equipment_type Mainequipment_Type = new Pages.list.equipment_type();
+        public Pages.list.equipment Mainequipment = new Pages.list.equipment();
 
         public MainWindow()
         {
@@ -32,11 +33,13 @@ namespace PP_01_02
         public enum pages
         {
             main,
-            equipment_type, equipment_typeAdd, equipment_typeEdit
+            equipment_type, equipment_typeAdd, equipment_typeEdit,
+            equipment, equipmentAdd, equipmentEdit
         }
 
         public void OpenPages(pages _pages, 
-            Models.equipment_type met = null)
+            Models.equipment_type met = null,
+            Models.equipment me = null)
         {
             this.MinHeight = 800;
             this.MinWidth = 950;
@@ -59,6 +62,18 @@ namespace PP_01_02
 
                 case pages.equipment_typeEdit:
                     frame.Navigate(new Pages.Edit.equipment_typeEdit(Mainequipment_Type, met));
+                    break;
+
+                case pages.equipment:
+                    frame.Navigate(new Pages.list.equipment());
+                    break;
+
+                case pages.equipmentAdd:
+                    frame.Navigate(new Pages.Add.equipmentAdd(Mainequipment));
+                    break;
+
+                case pages.equipmentEdit:
+                    frame.Navigate(new Pages.Edit.equipmentEdit(Mainequipment, me));
                     break;
             }
         }

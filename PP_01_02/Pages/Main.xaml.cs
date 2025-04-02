@@ -29,12 +29,22 @@ namespace PP_01_02.Pages
 
         private void Click_equipment(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.init.OpenPages(MainWindow.pages.equipment);
         }
 
         private void Click_equipment_type(object sender, RoutedEventArgs e)
         {
             MainWindow.init.OpenPages(MainWindow.pages.equipment_type);
+        }
+
+        private void Click_employees(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Click_calibration(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)

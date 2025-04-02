@@ -8,14 +8,14 @@ using System.Windows.Media.Animation;
 namespace PP_01_02.Pages.list
 {
     /// <summary>
-    /// Логика взаимодействия для equipment_type.xaml
+    /// Логика взаимодействия для equipment.xaml
     /// </summary>
-    public partial class equipment_type : Page
+    public partial class equipment : Page
     {
         private bool isMenuCollapsed = false;
-        public equipment_typeContext _equipment_TypeContext = new equipment_typeContext();
+        public equipmentContext _equipmentContext = new equipmentContext();
 
-        public equipment_type()
+        public equipment()
         {
             InitializeComponent();
             CreateUI();
@@ -24,9 +24,9 @@ namespace PP_01_02.Pages.list
         private void CreateUI()
         {
             parrent.Children.Clear();
-            foreach (var x in _equipment_TypeContext.equipment_type.ToList())
+            foreach (var x in _equipmentContext.equipment.ToList())
             {
-                parrent.Children.Add(new equipment_typeItem(x, this));
+                parrent.Children.Add(new equipmentItem(x, this));
             }
         }
 
@@ -52,7 +52,7 @@ namespace PP_01_02.Pages.list
 
         private void Click_Add(object sender, RoutedEventArgs e)
         {
-            MainWindow.init.OpenPages(MainWindow.pages.equipment_typeAdd);
+            MainWindow.init.OpenPages(MainWindow.pages.equipmentAdd);
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)

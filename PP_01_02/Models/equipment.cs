@@ -18,8 +18,8 @@ namespace PP_01_02.Models
 
         public string serial_number { get; set; }
 
-        public string explanatoryNote { get; set; }
+        public string manufacturer { get; set; }
 
-        public DateOnly installation_date { get; set; }
+        public DateTime installation_date { get; set; }
     }
 }
