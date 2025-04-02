@@ -35,8 +35,8 @@ namespace PP_01_02
         {
             this.MinHeight = 800;
             this.MinWidth = 950;
-            this.Height = 850;
-            this.Width = 1000;
+            this.Height = 750;
+            this.Width = 900;
 
             switch (_pages)
             {

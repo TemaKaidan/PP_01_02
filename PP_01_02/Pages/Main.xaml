@@ -9,6 +9,47 @@
       Title="Main">
 
     <Grid>
-        
+        <DockPanel>
+            <StackPanel x:Name="MenuPanel" DockPanel.Dock="Left" Width="200">
+                <StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#353535" Offset="0"/>
+                        <GradientStop Color="#212121" Offset="1.2"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <!-- Кнопка для раскрытия меню -->
+                <Button x:Name="MenuButton" Content="☰" Click="ToggleMenu" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Width="50" Height="30" Background="Transparent">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F9EA1A2"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Label Background="White" Height="1"/>
+
+                <Button x:Name="StudentsButton" Content="Оборудование" Tag="Table1" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="5" Height="25" Click="Click_equipment" FontWeight="Bold" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F9EA1A2"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+
+            <Grid Background="#383838">
+                <TextBlock Text="Выберите таблицу" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"/>
+            </Grid>
+        </DockPanel>
     </Grid>
+
 </Page>
