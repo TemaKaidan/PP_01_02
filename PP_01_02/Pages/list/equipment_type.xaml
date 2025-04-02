@@ -1,14 +1,17 @@
-﻿<Page x:Class="PP_01_02.Pages.Main"
+﻿<Page x:Class="PP_01_02.Pages.list.equipment_type"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PP_01_02.Pages"
+      xmlns:local="clr-namespace:PP_01_02.Pages.list"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Main">
+      Title="equipment_type">
 
     <Grid>
+        <Grid.Resources>
+            <ResourceDictionary Source="/Resource/BtnRes.xaml"/>
+        </Grid.Resources>
         <DockPanel>
             <StackPanel x:Name="MenuPanel" DockPanel.Dock="Left" Width="200">
                 <StackPanel.Background>
@@ -59,8 +62,22 @@
             </StackPanel>
 
             <Grid Background="#383838">
-                <TextBlock Text="Выберите таблицу" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White"/>
+                <Grid VerticalAlignment="Top" Height="55" Margin="5">
+                    <Border CornerRadius="15,15,15,15" Margin="5,0,5,0">
+                        <Border.Background>
+                            <SolidColorBrush Color="#494949" Opacity="1.0"/>
+                        </Border.Background>
+                    </Border>
+                    <Label Content="Информация о типах оборудования" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" FontSize="20"/>
+                </Grid>
+
+                <ScrollViewer Margin="15,70,15,55" Background="#494949">
+                    <StackPanel x:Name="parrent"/>
+                </ScrollViewer>
+                <Button Style="{StaticResource BtnRedac}" x:Name="AddButton" Background="#73e295" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="40"
+                    Click="Click_Add" Width="120" Margin="5"/>
             </Grid>
+
         </DockPanel>
     </Grid>
 

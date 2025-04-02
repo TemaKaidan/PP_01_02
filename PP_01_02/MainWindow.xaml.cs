@@ -19,6 +19,9 @@ namespace PP_01_02
     public partial class MainWindow : Window
     {
         public static MainWindow init;
+
+        public Pages.list.equipment_type Mainequipment_Type = new Pages.list.equipment_type();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,10 +31,12 @@ namespace PP_01_02
 
         public enum pages
         {
-            main
+            main,
+            equipment_type, equipment_typeAdd, equipment_typeEdit
         }
 
-        public void OpenPages(pages _pages)
+        public void OpenPages(pages _pages, 
+            Models.equipment_type met = null)
         {
             this.MinHeight = 800;
             this.MinWidth = 950;
@@ -42,6 +47,18 @@ namespace PP_01_02
             {
                 case pages.main:
                     frame.Navigate(new Pages.Main());
+                    break;
+
+                case pages.equipment_type:
+                    frame.Navigate(new Pages.list.equipment_type());
+                    break;
+
+                case pages.equipment_typeAdd:
+                    frame.Navigate(new Pages.Add.equipment_typeAdd(Mainequipment_Type));
+                    break;
+
+                case pages.equipment_typeEdit:
+                    frame.Navigate(new Pages.Edit.equipment_typeEdit(Mainequipment_Type, met));
                     break;
             }
         }

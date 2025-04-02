@@ -14,27 +14,42 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PP_01_02.Pages
+namespace PP_01_02.Pages.Edit
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для equipment_typeEdit.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class equipment_typeEdit : Page
     {
         private bool isMenuCollapsed = false;
-        public Main()
+
+        public Pages.list.equipment_type Mainequipment_type;
+        public Models.equipment_type equipment_Type;
+
+        public equipment_typeEdit(list.equipment_type Mainequipment_type, Models.equipment_type equipment_Type = null)
         {
             InitializeComponent();
+            this.Mainequipment_type = Mainequipment_type;
+            this.equipment_Type = equipment_Type;
+
+            tb_typeName.Text = equipment_Type.type_name;
         }
 
-        private void Click_equipment(object sender, RoutedEventArgs e)
+        private void Click_Edit(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Models.equipment_type met = Mainequipment_type._equipment_TypeContext.equipment_type.FirstOrDefault(x => x.type_id == equipment_Type.type_id);
+                met.type_name = tb_typeName.Text;
 
-        }
+                Mainequipment_type._equipment_TypeContext.SaveChanges();
 
-        private void Click_equipment_type(object sender, RoutedEventArgs e)
-        {
-            MainWindow.init.OpenPages(MainWindow.pages.equipment_type);
+                MainWindow.init.OpenPages(MainWindow.pages.equipment_type);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)
@@ -66,10 +81,16 @@ namespace PP_01_02.Pages
                     }
                 }
             }
-
             widthAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
+
             MenuPanel.BeginAnimation(WidthProperty, widthAnimation);
+
             isMenuCollapsed = !isMenuCollapsed;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

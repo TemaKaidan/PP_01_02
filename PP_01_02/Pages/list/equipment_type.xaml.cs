@@ -1,40 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore.Query.Internal;
+using PP_01_02.Context;
+using PP_01_02.Pages.Item;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace PP_01_02.Pages
+namespace PP_01_02.Pages.list
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для equipment_type.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class equipment_type : Page
     {
         private bool isMenuCollapsed = false;
-        public Main()
+        public equipment_typeContext _equipment_TypeContext = new equipment_typeContext();
+
+        public equipment_type()
         {
             InitializeComponent();
+            CreateUI();
+        }
+
+        private void CreateUI()
+        {
+            parrent.Children.Clear();
+            foreach (var x in _equipment_TypeContext.equipment_type.ToList())
+            {
+                parrent.Children.Add(new equipment_typeItem(x, this));
+            }
         }
 
         private void Click_equipment(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Click_equipment_type(object sender, RoutedEventArgs e)
         {
             MainWindow.init.OpenPages(MainWindow.pages.equipment_type);
+        }
+
+        private void Click_Add(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPages(MainWindow.pages.equipment_typeAdd);
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)
