@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Context\Database\" />
-    <Folder Include="Resource\" />
     <Folder Include="Pages\" />
     <Folder Include="Models\" />
   </ItemGroup>
