@@ -34,7 +34,7 @@ namespace PP_01_02.Pages.Item
             this.Maincalibration = Maincalibration;
 
             lb_equipment_id.Content = "Оборудование: " + _equipmentContext.equipment.FirstOrDefault(x => x.equipment_id == calibration.equipment_id).name;
-            lb_calibration_date.Content = "Дата калибровки: " + calibration.calibration_date;
+            lb_calibration_date.Content = "Дата калибровки: " + calibration.calibration_date.ToString("dd.MM.yyyy");
 
             employeesContext _employeesContext = new employeesContext();
             var employeesContext = _employeesContext.employees.FirstOrDefault(x => x.employee_id == calibration.calibrated_by);
@@ -120,7 +120,7 @@ namespace PP_01_02.Pages.Item
                     table.AddCell(new Cell().Add(new iText.Layout.Element.Paragraph(equipmentName).SetFont(font)));
                     table.AddCell(new Cell().Add(new iText.Layout.Element.Paragraph(employeeName).SetFont(font)));
                     table.AddCell(new Cell().Add(new iText.Layout.Element.Paragraph(calibration.calibration_result).SetFont(font)));
-                    table.AddCell(new Cell().Add(new iText.Layout.Element.Paragraph(calibration.calibration_date.ToString()).SetFont(font)));
+                    table.AddCell(new Cell().Add(new iText.Layout.Element.Paragraph(calibration.calibration_date.ToString("dd.MM.yyyy")).SetFont(font)));
 
                     rowNumber++;
                 }

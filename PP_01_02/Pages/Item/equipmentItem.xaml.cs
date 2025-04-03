@@ -26,7 +26,7 @@ namespace PP_01_02.Pages.Item
             lb_type_id.Content = "Тип: " + _equipment_TypeContext.equipment_type.FirstOrDefault(x => x.type_id == equipment.type_id).type_name;
             lb_serial_number.Content = "Серийный номер: " + equipment.serial_number;
             lb_explanatoryNote.Content = "Производитель: " + equipment.manufacturer;
-            lb_installation_date.Content = "Дата установки: " + equipment.installation_date;
+            lb_installation_date.Content = "Дата установки: " + equipment.installation_date.ToString("dd.MM.yyyy");
         }
 
         private void Click_Edit(object sender, RoutedEventArgs e)
