@@ -14,7 +14,7 @@ namespace PP_01_02.Models
 
         public int equipment_id { get; set; }
 
-        public DateOnly calibration_date { get; set; }
+        public DateTime calibration_date { get; set; }
 
         public int calibrated_by { get; set; }
 

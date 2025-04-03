@@ -44,7 +44,7 @@ namespace PP_01_02.Pages
 
         private void Click_calibration(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.init.OpenPages(MainWindow.pages.calibration);
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)

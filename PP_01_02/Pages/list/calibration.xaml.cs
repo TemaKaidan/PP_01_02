@@ -19,14 +19,14 @@ using System.Windows.Shapes;
 namespace PP_01_02.Pages.list
 {
     /// <summary>
-    /// Логика взаимодействия для employees.xaml
+    /// Логика взаимодействия для calibration.xaml
     /// </summary>
-    public partial class employees : Page
+    public partial class calibration : Page
     {
         private bool isMenuCollapsed = false;
-        public employeesContext _employeesContext = new employeesContext();
+        public calibrationContext _calibrationContext = new calibrationContext();
 
-        public employees()
+        public calibration()
         {
             InitializeComponent();
             CreateUI();
@@ -35,15 +35,15 @@ namespace PP_01_02.Pages.list
         private void CreateUI()
         {
             parrent.Children.Clear();
-            foreach (var x in _employeesContext.employees.ToList())
+            foreach (var x in _calibrationContext.calibration.ToList())
             {
-                parrent.Children.Add(new employeesItem(x, this));
+                parrent.Children.Add(new calibrationItem(x, this));
             }
         }
 
         private void Click_Add(object sender, RoutedEventArgs e)
         {
-            MainWindow.init.OpenPages(MainWindow.pages.employeesAdd);
+            MainWindow.init.OpenPages(MainWindow.pages.calibrationAdd);
         }
 
         private void Click_equipment(object sender, RoutedEventArgs e)

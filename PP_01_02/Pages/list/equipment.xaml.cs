@@ -42,12 +42,12 @@ namespace PP_01_02.Pages.list
 
         private void Click_employees(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.init.OpenPages(MainWindow.pages.employees);
         }
 
         private void Click_calibration(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.init.OpenPages(MainWindow.pages.calibration);
         }
 
         private void Click_Add(object sender, RoutedEventArgs e)
