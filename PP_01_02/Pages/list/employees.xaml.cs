@@ -100,5 +100,29 @@ namespace PP_01_02.Pages.list
             MenuPanel.BeginAnimation(WidthProperty, widthAnimation);
             isMenuCollapsed = !isMenuCollapsed;
         }
+
+        private void KeyDown_Search(object sender, KeyEventArgs e)
+        {
+            string searchText = search.Text.ToLower();
+
+            var resultsurname = _employeesContext.employees
+                .Where(x => x.sur_name.ToLower().Contains(searchText));
+
+            var resultname = _employeesContext.employees
+                .Where(x => x.name.ToLower().Contains(searchText));
+
+            var resultlastname = _employeesContext.employees
+                .Where(x => x.last_name.ToLower().Contains(searchText));
+
+            var combinedResults = resultsurname
+                .Union(resultname)
+                .Union(resultlastname);
+
+            parrent.Children.Clear();
+            foreach (var item in combinedResults)
+            {
+                parrent.Children.Add(new Pages.Item.employeesItem(item, this));
+            }
+        }
     }
 }
