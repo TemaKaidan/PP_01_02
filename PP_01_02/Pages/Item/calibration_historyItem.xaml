@@ -20,7 +20,7 @@
                 <Label x:Name="lb_equipment_id" Content="Оборудование: " Height="30" FontSize="15" Foreground="White"/>
                 <Label x:Name="lb_calibrated_by" Content="Сотрудник: " Height="30" FontSize="15" Foreground="White"/>
                 <Label x:Name="lb_calibration_date" Content="Дата калибровки: " Height="30" FontSize="15" Foreground="White"/>
-                <Label x:Name="lb_notes" Content="Примечание: " Height="30" FontSize="15" Foreground="White"/>
+                <Label x:Name="lb_notes" Content="Описание: " Height="30" FontSize="15" Foreground="White"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">

@@ -3,6 +3,7 @@ using PP_01_02.Context;
 using PP_01_02.Pages.Item;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 
 namespace PP_01_02.Pages.list
@@ -93,6 +94,18 @@ namespace PP_01_02.Pages.list
             widthAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             MenuPanel.BeginAnimation(WidthProperty, widthAnimation);
             isMenuCollapsed = !isMenuCollapsed;
+        }
+
+        private void KeyDown_Search(object sender, KeyEventArgs e)
+        {
+            string searchText = search.Text.ToLower();
+            var result = _equipmentContext.equipment.Where(x => x.name.ToLower().Contains(searchText));
+
+            parrent.Children.Clear();
+            foreach (var item in result)
+            {
+                parrent.Children.Add(new Pages.Item.equipmentItem(item, this));
+            }
         }
     }
 }

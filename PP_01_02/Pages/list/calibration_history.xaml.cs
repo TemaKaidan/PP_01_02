@@ -1,4 +1,5 @@
-﻿using PP_01_02.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PP_01_02.Context;
 using PP_01_02.Pages.Item;
 using System;
 using System.Collections.Generic;
@@ -103,6 +104,34 @@ namespace PP_01_02.Pages.list
             widthAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             MenuPanel.BeginAnimation(WidthProperty, widthAnimation);
             isMenuCollapsed = !isMenuCollapsed;
+        }
+
+        private async void SortUp(object sender, RoutedEventArgs e)
+        {
+            var sortedHistory = await _calibration_historyContext.calibration_history
+                .OrderBy(x => x.change_date)
+                .ToListAsync();
+
+            parrent.Children.Clear();
+
+            foreach (var history in sortedHistory)
+            {
+                parrent.Children.Add(new Pages.Item.calibration_historyItem(history, this));
+            }
+        }
+
+        private async void SortDown(object sender, RoutedEventArgs e)
+        {
+            var sortedHistory = await _calibration_historyContext.calibration_history
+                .OrderByDescending(x => x.change_date)
+                .ToListAsync();
+
+            parrent.Children.Clear();
+
+            foreach (var history in sortedHistory)
+            {
+                parrent.Children.Add(new Pages.Item.calibration_historyItem(history, this));
+            }
         }
     }
 }

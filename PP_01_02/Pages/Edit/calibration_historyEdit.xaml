@@ -61,7 +61,7 @@
                     <Label Content="Сотрудник" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="0,75,0,0" Width="120"/>
                     <ComboBox x:Name="cb_calibrated_by" Background="White" BorderBrush="#0060AC" Foreground="Black"  VerticalAlignment="Top" Margin="10,110,0,0" Height="30" HorizontalAlignment="Center" Width="250"/>
 
-                    <Label Content="Примечание" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="0,205,0,0" Width="140"/>
+                    <Label Content="Описание" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="0,205,0,0" Width="110"/>
                     <TextBox Style="{StaticResource BaseBox}" x:Name="tb_notes" Background="#282828" BorderBrush="White" Foreground="White" VerticalAlignment="Top" Margin="10,240,0,0" Height="30" HorizontalAlignment="Center" Width="250"/>
                 </Grid>
 

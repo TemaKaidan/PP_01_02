@@ -106,8 +106,8 @@
                     </Border>
                     <Label Content="Информация об оборудовании" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" FontSize="20"/>
                 </Grid>
-
-                <ScrollViewer Margin="15,70,15,55" Background="#494949">
+                <TextBox Style="{StaticResource BaseBox}" Background="#494949" Foreground="White" x:Name="search" Height="25" FontSize="15" Width="340" BorderBrush="#383838" Margin="0,70,0,0" KeyDown="KeyDown_Search" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <ScrollViewer Margin="15,100,15,55" Background="#494949">
                     <StackPanel x:Name="parrent"/>
                 </ScrollViewer>
                 <Button Style="{StaticResource BtnRedac}" x:Name="AddButton" Background="#73e295" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="40"

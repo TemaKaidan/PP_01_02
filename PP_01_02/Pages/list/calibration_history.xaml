@@ -107,7 +107,10 @@
                     <Label Content="Информация о истории калибровок" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="White" FontSize="20"/>
                 </Grid>
 
-                <ScrollViewer Margin="15,70,15,55" Background="#494949">
+                <Button Style="{StaticResource BtnRedac}" Content="↑" Height="25" Width="25" FontSize="20" Background="#494949" Foreground="White" BorderBrush="#0060AC" FontFamily="/Fonts/#Montserrat Bold" Margin="-30,70,0,0" Click="SortUp" VerticalAlignment="Top"/>
+                <Button Style="{StaticResource BtnRedac}" Content="↓" Height="25" Width="25" FontSize="20" Background="#494949" Foreground="White" BorderBrush="#0060AC" FontFamily="/Fonts/#Montserrat Bold" Margin="30,70,0,0" Click="SortDown" VerticalAlignment="Top"/>
+
+                <ScrollViewer Margin="15,100,15,55" Background="#494949">
                     <StackPanel x:Name="parrent"/>
                 </ScrollViewer>
                 <Button Style="{StaticResource BtnRedac}" x:Name="AddButton" Background="#73e295" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="40"
