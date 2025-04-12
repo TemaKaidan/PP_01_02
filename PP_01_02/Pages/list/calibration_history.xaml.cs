@@ -1,21 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore.Query.Internal;
-using PP_01_02.Context;
+﻿using PP_01_02.Context;
 using PP_01_02.Pages.Item;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace PP_01_02.Pages.list
 {
     /// <summary>
-    /// Логика взаимодействия для equipment_type.xaml
+    /// Логика взаимодействия для calibration_history.xaml
     /// </summary>
-    public partial class equipment_type : Page
+    public partial class calibration_history : Page
     {
         private bool isMenuCollapsed = false;
-        public equipment_typeContext _equipment_TypeContext = new equipment_typeContext();
+        public calibration_historyContext _calibration_historyContext = new calibration_historyContext();
 
-        public equipment_type()
+        public calibration_history()
         {
             InitializeComponent();
             CreateUI();
@@ -24,10 +35,14 @@ namespace PP_01_02.Pages.list
         private void CreateUI()
         {
             parrent.Children.Clear();
-            foreach (var x in _equipment_TypeContext.equipment_type.ToList())
+            foreach (var x in _calibration_historyContext.calibration_history.ToList())
             {
-                parrent.Children.Add(new equipment_typeItem(x, this));
+                parrent.Children.Add(new calibration_historyItem(x, this));
             }
+        }
+        private void Click_Add(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPages(MainWindow.pages.calibration_historyAdd);
         }
 
         private void Click_equipment(object sender, RoutedEventArgs e)
@@ -53,11 +68,6 @@ namespace PP_01_02.Pages.list
         private void Click_calibration_history(object sender, RoutedEventArgs e)
         {
             MainWindow.init.OpenPages(MainWindow.pages.calibration_history);
-        }
-
-        private void Click_Add(object sender, RoutedEventArgs e)
-        {
-            MainWindow.init.OpenPages(MainWindow.pages.equipment_typeAdd);
         }
 
         private void ToggleMenu(object sender, RoutedEventArgs e)

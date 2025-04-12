@@ -25,6 +25,8 @@ namespace PP_01_02
         public Pages.list.employees Mainemployeest = new Pages.list.employees();
         public Pages.list.calibration Maincalibration = new Pages.list.calibration();
 
+        public Pages.list.calibration_history Maincalibration_history = new Pages.list.calibration_history();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,14 +40,16 @@ namespace PP_01_02
             equipment_type, equipment_typeAdd, equipment_typeEdit,
             equipment, equipmentAdd, equipmentEdit,
             employees, employeesAdd, employeesEdit,
-            calibration, calibrationAdd, calibrationEdit
+            calibration, calibrationAdd, calibrationEdit,
+            calibration_history, calibration_historyAdd, calibration_historyEdit
         }
 
         public void OpenPages(pages _pages, 
             Models.equipment_type met = null,
             Models.equipment me = null,
             Models.employees memp = null,
-            Models.calibration mcal = null)
+            Models.calibration mcal = null,
+            Models.calibration_history mch = null)
         {
             this.MinHeight = 800;
             this.MinWidth = 950;
@@ -104,6 +108,18 @@ namespace PP_01_02
 
                 case pages.calibrationEdit:
                     frame.Navigate(new Pages.Edit.calibrationEdit(Maincalibration, mcal));
+                    break;
+
+                case pages.calibration_history:
+                    frame.Navigate(new Pages.list.calibration_history());
+                    break;
+
+                case pages.calibration_historyAdd:
+                    frame.Navigate(new Pages.Add.calibration_historyAdd(Maincalibration_history));
+                    break;
+
+                case pages.calibration_historyEdit:
+                    frame.Navigate(new Pages.Edit.calibration_historyEdit(Maincalibration_history, mch));
                     break;
             }
         }

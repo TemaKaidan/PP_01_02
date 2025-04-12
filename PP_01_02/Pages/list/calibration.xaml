@@ -83,6 +83,18 @@
                         </Style>
                     </Button.Style>
                 </Button>
+
+                <Button x:Name="calibration_historyButton" Content="История" Tag="Table1" Foreground="White" Background="Transparent" BorderBrush="Transparent" Margin="5" Height="25" Click="Click_calibration_history" FontWeight="Bold" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F9EA1A2"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
 
             <Grid Background="#383838">

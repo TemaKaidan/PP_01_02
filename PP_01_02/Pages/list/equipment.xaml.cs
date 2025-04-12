@@ -50,6 +50,11 @@ namespace PP_01_02.Pages.list
             MainWindow.init.OpenPages(MainWindow.pages.calibration);
         }
 
+        private void Click_calibration_history(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPages(MainWindow.pages.calibration_history);
+        }
+
         private void Click_Add(object sender, RoutedEventArgs e)
         {
             MainWindow.init.OpenPages(MainWindow.pages.equipmentAdd);

@@ -47,6 +47,11 @@ namespace PP_01_02.Pages
             MainWindow.init.OpenPages(MainWindow.pages.calibration);
         }
 
+        private void Click_calibration_history(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPages(MainWindow.pages.calibration_history);
+        }
+
         private void ToggleMenu(object sender, RoutedEventArgs e)
         {
             DoubleAnimation widthAnimation = new DoubleAnimation();
